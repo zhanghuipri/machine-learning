@@ -58,7 +58,7 @@ def generator(data, lookback, delay, min_index, max_index,
 
         print('data shape (%d %d ):', data.shape)
         samples = np.zeros((len(rows),
-                            lookback // step,#//是向下取整除法
+                            lookback // step,
                             data.shape[-1]))
         targets = np.zeros((len(rows),))
         for j, row in enumerate(rows):
