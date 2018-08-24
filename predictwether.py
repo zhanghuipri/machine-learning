@@ -13,27 +13,22 @@ print(len(lines))
 print(lines[0])
 
 import numpy as np
-#float_data存放excel的所有数据，去除了第一行的标题，去除了第一列的时间
+
 float_data = np.zeros((len(lines), len(header) - 1))
 for i, line in enumerate(lines):
-    # values表示一行数据，但是把第一列给去掉了
     values = [float(x) for x in line.split(',')[1:]]
-    # 二维数组赋值，每一个rank之间用,分隔，“:”表示这个rank的所有
-    # 下面是把每一行都用values来赋值
     float_data[i, :] = values
 
 print('float_data\' shape is (%d %d) :'%(float_data.shape))
 
 from matplotlib import pyplot as plt
 
-# 这是取每一行的第一列数据，中间用,分隔
 temp = float_data[:, 1]
 print(temp[0])
 
 # plt.plot(range(len(temp)), temp)
 # plt.show()
 
-# 测试时注释掉，用于观察具体的数据
 mean = float_data[:200000].mean(axis=0)
 float_data -= mean
 std = float_data[:200000].std(axis=0)
@@ -80,7 +75,6 @@ batch_size = 128
 
 # (128, 240, 14)
 '''
-举个具体的例子
 Our input array should then be something shaped as (N,5,2):
 
         [     Step1      Step2      Step3      Step4      Step5
@@ -95,8 +89,8 @@ train_gen = generator(float_data,
                       lookback=lookback,
                       delay=delay,
                       min_index=0,
-                      max_index=200000,  # 测试时修改了，原始值为200000
-                      shuffle=False,  # 测试时修改了，原始值为True
+                      max_index=200000,  
+                      shuffle=False,  
                       step=step,
                       batch_size=batch_size)
 val_gen = generator(float_data,
