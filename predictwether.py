@@ -61,7 +61,6 @@ def generator(data, lookback, delay, min_index, max_index,
             print(data[indices].shape)
 
             samples[j] = data[indices]
-            #rows 为128,delay = 144
             print('row[%d] is (%d)'% (j, rows[j]))
             targets[j] = data[rows[j] + delay][1]
 
