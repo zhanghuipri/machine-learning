@@ -24,8 +24,8 @@ def anomalyDetection_example():
     print (mu,sigma2)
 
 
-    p = multivariateGaussian(X, mu, sigma2)
-    print (p)
+    #p = multivariateGaussian(X, mu, sigma2)
+    #print (p)
 
 
     '''选择异常点（在交叉验证CV上训练得到最好的epsilon）
