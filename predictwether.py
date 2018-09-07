@@ -162,7 +162,7 @@ patience=10,
 )
 callbacks_list = [callback_early_stopping,
                     callback_checkpoint,
-                    callback_reduce_lr,
+                    callback_tensorboard,
                     callback_reduce_lr]
 history = model.fit_generator(train_gen,
                               steps_per_epoch=500,
